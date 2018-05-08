@@ -5,8 +5,8 @@ function Tab(node){
 Tab.prototype = {
     constructor: Tab,
     init: function(){
-        this.tabBtn=this.node.getElementsByTagName('span') 
-        this.content=this.node.getElementsByTagName('li')
+        this.tabBtn=this.node.querySelectorAll('.tab-name>span') 
+        this.content=this.node.querySelectorAll('.tab-content>li')
         this.bind()
     },
     bind: function(){
