@@ -1,19 +1,21 @@
-function Tab(){
+function Tab(node){
+    this.node=node
     this.init()
 }
 Tab.prototype = {
     constructor: Tab,
     init: function(){
-        this.tabBtn=document.getElementsByTagName('span') 
-        this.content=document.getElementsByTagName('li')
+        this.tabBtn=this.node.getElementsByTagName('span') 
+        this.content=this.node.getElementsByTagName('li')
         this.bind()
     },
     bind: function(){
         var _this = this
         for(var i=0;i<this.tabBtn.length;i++){
-            _this.tabBtn[i].onclick = function(target){
+            var index = i
+            _this.tabBtn[i].onclick = function(e){
                 for(j=0;j<_this.tabBtn.length;j++){
-                    if(_this.tabBtn[j]==target){
+                    if(_this.tabBtn[j]==e.target){
                         _this.tabBtn[j].classList.add('active')
                         _this.content[j].classList.add('show')
                     }else{
